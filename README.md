@@ -36,10 +36,11 @@ https://dortania.github.io/OpenCore-Install-Guide/installer-guide/
 
 ## Bios Settings
 
-Disable the following
+> Disable Secure Boot
 
-Fingerprint reader
-Disable CFG Lock (via modGRUBShell)
+> Fingerprint reader
+
+> Disable CFG Lock (via modGRUBShell)
 
 ## How to disable CFG Lock
 
