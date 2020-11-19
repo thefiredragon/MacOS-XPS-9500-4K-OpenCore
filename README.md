@@ -25,7 +25,7 @@ and paste your extracted edid from xrandr --props to get patched one
 
 - Place patched edid into your config.plist under 
 ```
- DeviceProperties, AAPL00,override-no-connect
+ DeviceProperties, PciRoot(0x0)/Pci(0x2,0x0), AAPL00,override-no-connect
 ```
 - Create USB installer with your modified config.plist
 please note to adjust your PlatformInfo to MacBookPro 16.4
