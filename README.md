@@ -63,6 +63,10 @@ If you update your BIOS, you may need to do this again but so far Dell has been 
 # Brightness hotkeys
 The BRT6 patch used by previous Dell XPS models isn't working on the XPS 9500. However, fn+S and fn+B hotkeys are functioning in place of the original fn+F6 and fn+F7.
 
+# Undervolting
+This EFI comes preinstalled with VoltageShift kext. To undervolt, visit https://github.com/sicreative/VoltageShift (skip the kext loading part).
+
 # Notes
-Touchscreen and Touchpad currently only working with Voodooi2c version 2.4.4, newer version will break the touchpad
+Touchscreen and Touchpad currently only working with Voodooi2c version 2.4.4, newer version will break the Touchpad.
 Touchscreen SSDT-Patch to force interrupt mode included.
+
