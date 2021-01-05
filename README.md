@@ -10,7 +10,7 @@ Everything execpt sleep
 
 # Installation
 
-## Patchig Edid for 4k Display no longer needed‚
+## Patchig edid for 4k Display is not longer required 
 
 ### Patching 4k Panel
 ~~Extract from Linux your EDID~~
