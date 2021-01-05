@@ -10,27 +10,27 @@ Everything execpt sleep
 
 # Installation
 
-## Patchig edid for 4k Display is not longer required 
+## Patching edid for 4k Displays is not longer required 
 
 ### Patching 4k Panel
 ~~Extract from Linux your EDID~~
-```
- xrandr -props
-```
+
+~~xrandr -props~~
 
 ~~Run the script~~
-```
-python3 4k-patch.py
-```
+
+~~python3 4k-patch.py~~
 
 ~~and paste your extracted edid from xrandr --props to get patched one~~
 
 ~~Place patched edid into your config.plist under~~
-```
- DeviceProperties, PciRoot(0x0)/Pci(0x2,0x0), AAPL00,override-no-connect
-```
-~~Create USB installer with your modified config.plist~~
-~~please note to adjust your PlatformInfo to MacBookPro 16.4~~
+
+~~DeviceProperties, PciRoot(0x0)/Pci(0x2,0x0), AAPL00,override-no-connect~~
+
+
+
+# Create USB installer with your modified config.plist
+## please note to adjust your PlatformInfo to MacBookPro 16.4
 
 ```
 https://dortania.github.io/OpenCore-Install-Guide/installer-guide/
