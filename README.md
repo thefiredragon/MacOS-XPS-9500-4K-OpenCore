@@ -10,9 +10,10 @@ Everything execpt sleep
 
 # Installation
 
-## Patching edid for 4k Displays is not longer required 
+> Patching edid for 4k Displays is not required anymore
 
-### Patching 4k Panel
+~~Patching 4k Panel~~
+
 ~~Extract from Linux your EDID~~
 
 ~~xrandr -props~~
@@ -29,7 +30,7 @@ Everything execpt sleep
 
 
 
-# Create USB installer with your modified config.plist
+## Create USB installer with your modified config.plist
 ## please note to adjust your PlatformInfo to MacBookPro 16.4
 
 ```
@@ -62,13 +63,13 @@ If you update your BIOS, you may need to do this again but so far Dell has been 
 
 
 
-# Brightness hotkeys
+## Brightness hotkeys
 The BRT6 patch used by previous Dell XPS models isn't working on the XPS 9500. However, fn+S and fn+B hotkeys are functioning in place of the original fn+F6 and fn+F7.
 
-# Undervolting
+## Undervolting
 This EFI comes preinstalled with VoltageShift kext. To undervolt, visit https://github.com/sicreative/VoltageShift (skip the kext loading part).
 
-# Notes
+## Notes
 Touchscreen and Touchpad currently only working with Voodooi2c version 2.4.4, newer version will break the Touchpad.
 Touchscreen SSDT-Patch to force interrupt mode included.
 
