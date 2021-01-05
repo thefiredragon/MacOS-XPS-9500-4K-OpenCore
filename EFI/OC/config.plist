@@ -209,8 +209,12 @@
 				<false/>
 			</dict>
 		</array>
+		<key>Patch</key>
+		<array/>
 		<key>Quirks</key>
 		<dict>
+			<key>AllowRelocationBlock</key>
+			<false/>
 			<key>AvoidRuntimeDefrag</key>
 			<true/>
 			<key>DevirtualiseMmio</key>
@@ -255,8 +259,6 @@
 			<dict>
 				<key>AAPL,ig-platform-id</key>
 				<data>AACbPg==</data>
-				<key>AAPL00,override-no-connect</key>
-				<data>AAAAAADeDQ0O</data>
 				<key>device-id</key>
 				<data>mz4AAA==</data>
 				<key>enable-dpcd-max-link-rate-fix</key>
@@ -266,6 +268,8 @@
 				<key>enable-hdmi20</key>
 				<data>AQAAAA==</data>
 				<key>enable-lspcon-support</key>
+				<data>AQAAAA==</data>
+				<key>enable-max-pixel-clock-override</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con1-alldata</key>
 				<data>AQUJAAAEAACHAQAA</data>
@@ -353,7 +357,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AirportItlwm</string>
 				<key>MaxKernel</key>
@@ -831,6 +835,24 @@
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>AirPortOpenBSD.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AirPortOpenBSD</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
 		</array>
 		<key>Block</key>
 		<array>
@@ -1124,6 +1146,8 @@
 			<integer>0</integer>
 			<key>AuthRestart</key>
 			<false/>
+			<key>BlacklistAppleUpdate</key>
+			<false/>
 			<key>BootProtect</key>
 			<string>Bootstrap</string>
 			<key>DmgLoading</key>
@@ -1138,10 +1162,10 @@
 			<data></data>
 			<key>PasswordSalt</key>
 			<data></data>
-			<key>SecureBootModel</key>
-			<string>Default</string>
 			<key>ScanPolicy</key>
 			<integer>0</integer>
+			<key>SecureBootModel</key>
+			<string>Default</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
@@ -1155,11 +1179,15 @@
 				<key>Comment</key>
 				<string>modGRUBShell.efi</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Name</key>
 				<string>modGRUBShell.efi</string>
 				<key>Path</key>
 				<string>modGRUBShell.efi</string>
+				<key>RealPath</key>
+				<false/>
+				<key>TextMode</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -1174,6 +1202,10 @@
 				<string>OpenShell.efi</string>
 				<key>Path</key>
 				<string>OpenShell.efi</string>
+				<key>RealPath</key>
+				<false/>
+				<key>TextMode</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -1188,6 +1220,10 @@
 				<string>VerifyMsrE2.efi</string>
 				<key>Path</key>
 				<string>VerifyMsrE2.efi</string>
+				<key>RealPath</key>
+				<false/>
+				<key>TextMode</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
@@ -1212,7 +1248,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>keepsyms=1  -wegnoegpu agdpmod=vit9696  -wegdbg</string>
+				<string>keepsyms=1  -wegnoegpu agdpmod=vit9696  -wegdbg -igfxblr</string>
 				<key>run-efi-updater</key>
 				<string>No</string>
 				<key>csr-active-config</key>
@@ -1235,6 +1271,7 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<array>
 				<string>boot-args</string>
+				<string>prev-lang:kbd</string>
 			</array>
 		</dict>
 		<key>LegacyEnable</key>
@@ -1281,21 +1318,21 @@
 			<key>AdviseWindows</key>
 			<false/>
 			<key>MLB</key>
-			<string>C02039500CD0000A8</string>
+			<string>C02046104J90000JC</string>
 			<key>ProcessorType</key>
 			<integer>1793</integer>
-			<key>SystemMemoryStatus</key>
-			<string>Auto</string>
 			<key>ROM</key>
 			<string>11223300 0000</string>
 			<key>SpoofVendor</key>
 			<true/>
+			<key>SystemMemoryStatus</key>
+			<string>Auto</string>
 			<key>SystemProductName</key>
 			<string>MacBookPro16,4</string>
 			<key>SystemSerialNumber</key>
-			<string>C02DGGZRMD6T</string>
+			<string>C02DP0ZFMD6T</string>
 			<key>SystemUUID</key>
-			<string>3D6EA134-94EE-49A0-B535-C35778139B02</string>
+			<string>9035298C-6E09-49B6-BA40-05901E3DD1A7</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -1336,7 +1373,7 @@
 			<key>MinimumVolume</key>
 			<integer>20</integer>
 			<key>PlayChime</key>
-			<false/>
+			<string></string>
 			<key>VolumeAmplifier</key>
 			<integer>0</integer>
 		</dict>
