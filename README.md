@@ -1,5 +1,5 @@
 # MacOS-XPS-9500-4K-OpenCore
-macOS Big Sur on Dell XPS 9500 year 2020
+macOS Monterey on Dell XPS 9500 year 2020
 
 # Some Notes
 First thanks to the other Repositorys here on github from @zachs78 and @robotblox
@@ -72,4 +72,9 @@ This EFI comes preinstalled with VoltageShift kext. To undervolt, visit https://
 ## Notes
 Touchscreen and Touchpad currently only working with Voodooi2c version 2.4.4, newer version will break the Touchpad.
 Touchscreen SSDT-Patch to force interrupt mode included.
+
+For Monterey support I had removed USB-Map.kext, this need to be added in future.
+Also fakepciid is not working anymore and runned into kernel panics.
+
+Headphonefix: alcdelay=1000
 

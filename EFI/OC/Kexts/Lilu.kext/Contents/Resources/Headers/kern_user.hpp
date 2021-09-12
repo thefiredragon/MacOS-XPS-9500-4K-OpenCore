@@ -113,7 +113,13 @@ public:
 		uint32_t section;
 	};
 
-	static_assert(sizeof(BinaryModPatch) == 56, "BinaryModPatch ABI compatibility failure");
+#if defined(__i386__)
+	static_assert(sizeof(BinaryModPatch) == 36, "BinaryModPatch 32-bit ABI compatibility failure");
+#elif defined(__x86_64__)
+	static_assert(sizeof(BinaryModPatch) == 56, "BinaryModPatch 64-bit ABI compatibility failure");
+#else
+#error Unsupported arch.
+#endif
 
 	/**
 	 *  Structure describing the modifications for the binary
@@ -226,6 +232,22 @@ public:
 	 */
 	void activate();
 
+	/**
+	 *  Get active dyld shared cache path.
+	 *
+	 *  @return shared cache path constant
+	 */
+	EXPORT static const char *getSharedCachePath() DEPRECATE("Use matchSharedCachePath, macOS 12 has multiple caches");
+
+	/**
+	 *  Check if the supplied path matches dyld shared cache path.
+	 *
+	 *  @param path  image path
+	 *
+	 *  @return shared cache path constant
+	 */
+	EXPORT static bool matchSharedCachePath(const char *path);
+
 private:
 
 	/**
@@ -237,7 +259,7 @@ private:
 	using t_getTaskMap = vm_map_t (*)(task_t);
 	using t_getMapMin = vm_map_offset_t (*)(vm_map_t);
 	using t_vmMapSwitchProtect = void (*)(vm_map_t, boolean_t);
-	using t_vmMapCheckProtection = boolean_t (*)(vm_map_t, vm_offset_t, vm_offset_t, vm_prot_t);
+	using t_vmMapCheckProtection = boolean_t (*)(vm_map_t, vm_map_offset_t, vm_map_offset_t, vm_prot_t);
 	using t_vmMapReadUser = kern_return_t (*)(vm_map_t, vm_map_address_t, const void *, vm_size_t);
 	using t_vmMapWriteUser = kern_return_t (*)(vm_map_t, const void *, vm_map_address_t, vm_size_t);
 
@@ -436,7 +458,7 @@ private:
 
 	evector<LookupStorage *, LookupStorage::deleter> lookupStorage;
 	Lookup lookup;
-
+	
 	/**
 	 *  Restrict 64-bit entry overlapping DYLD_SHARED_CACHE to enforce manual library loading
 	 */
@@ -549,14 +571,44 @@ private:
 	void patchBinary(vm_map_t map, const char *path, uint32_t len);
 
 	/**
-	 *  Dyld shared cache map path for 10.10+ on Haswell
+	 *  DYLD shared cache map path for 10.10+ on Haswell
 	 */
 	static constexpr const char *SharedCacheMapHaswell {"/private/var/db/dyld/dyld_shared_cache_x86_64h.map"};
 
 	/**
-	 *  Dyld shared cache map path for all other systems and older CPUs
+	 *  DYLD shared cache map path for all other systems and older CPUs
 	 */
 	static constexpr const char *SharedCacheMapLegacy {"/private/var/db/dyld/dyld_shared_cache_x86_64.map"};
+
+	/**
+	 *  DYLD shared cache path on Haswell+ before Big Sur
+	 */
+	static constexpr const char *sharedCacheHaswell {"/private/var/db/dyld/dyld_shared_cache_x86_64h"};
+
+	/**
+	 *  DYLD shared cache path on older systems before Big Sur
+	 */
+	static constexpr const char *sharedCacheLegacy {"/private/var/db/dyld/dyld_shared_cache_x86_64"};
+	
+	/**
+	 *  DYLD shared cache map path on Haswell+ on Big Sur
+	 */
+	static constexpr const char *bigSurSharedCacheMapHaswell {"/System/Library/dyld/dyld_shared_cache_x86_64h.map"};
+	
+	/**
+	 *  DYLD shared cache map path on older systems on Big Sur
+	 */
+	static constexpr const char *bigSurSharedCacheMapLegacy {"/System/Library/dyld/dyld_shared_cache_x86_64.map"};
+
+	/**
+	 *  DYLD shared cache path on Haswell+ on Big Sur
+	 */
+	static constexpr const char *bigSurSharedCacheHaswell {"/System/Library/dyld/dyld_shared_cache_x86_64h"};
+
+	/**
+	 *  DYLD shared cache path on older systems on Big Sur
+	 */
+	static constexpr const char *bigSurSharedCacheLegacy {"/System/Library/dyld/dyld_shared_cache_x86_64"};
 
 };
 
