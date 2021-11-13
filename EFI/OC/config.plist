@@ -68,7 +68,7 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-PNLF-CFL.aml</string>
+				<string>SSDT-PNLFCFL.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -109,6 +109,22 @@
 				<true/>
 				<key>Path</key>
 				<string>SSDT-I2C.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-EC.aml</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-EC.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Save Battery</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-NoHybGfx.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -219,6 +235,8 @@
 			<integer>0</integer>
 			<key>RebuildAppleMemoryMap</key>
 			<true/>
+			<key>ResizeAppleGpuBars</key>
+			<integer>-1</integer>
 			<key>SetupVirtualMap</key>
 			<true/>
 			<key>SignalAppleOS</key>
@@ -251,38 +269,40 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
-				<key>#enable-hdmi-dividers-fix</key>
-				<data>AQAAAA==</data>
-				<key>#enable-lspcon-support</key>
-				<data>AQAAAA==</data>
-				<key>#framebuffer-con1-alldata</key>
-				<data>AQUJAAAEAACHAQAA</data>
-				<key>#framebuffer-con1-enable</key>
-				<data>AQAAAA==</data>
-				<key>#framebuffer-con2-alldata</key>
-				<data>AgYJAAAEAACHAQAA</data>
-				<key>#framebuffer-con2-enable</key>
-				<data>AQAAAA==</data>
-				<key>#framebuffer-con3-alldata</key>
-				<data>AwQKAAAIAACHAQAA</data>
-				<key>#framebuffer-con3-enable</key>
-				<data>AQAAAA==</data>
-				<key>#framebuffer-con3-has-lspcon</key>
-				<data>AQAAAA==</data>
-				<key>#framebuffer-portcount</key>
-				<data>BAAAAA==</data>
+				<key>#AAPL00,override-no-connect</key>
+				<data>AP///////wBNENAUAAAAAAMeAQS1IhV4Cm08qlIzuSUMT1YAAAABAQEBAQEBAQEBAQEBAQEBpqYAoPBgRZAwIDYAUNIQAAAYKLkAoPBgRZAwIDYAUNIQAAAYAAAA/gA5MFQwMoBMUTE1NlIxAAAAAAACQQMyARIAAAsBCiAgARsCAw8A4wWAAOYGBQFgYCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtw==</data>
 				<key>AAPL,ig-platform-id</key>
 				<data>CQClPg==</data>
 				<key>device-id</key>
 				<data>mz4AAA==</data>
 				<key>enable-dpcd-max-link-rate-fix</key>
 				<data>AQAAAA==</data>
+				<key>enable-hdmi-dividers-fix</key>
+				<data>AQAAAA==</data>
 				<key>enable-hdmi20</key>
+				<data>AQAAAA==</data>
+				<key>enable-lspcon-support</key>
 				<data>AQAAAA==</data>
 				<key>enable-max-pixel-clock-override</key>
 				<data>AQAAAA==</data>
+				<key>framebuffer-con1-alldata</key>
+				<data>AQUJAAAEAACHAQAA</data>
+				<key>framebuffer-con1-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-con2-alldata</key>
+				<data>AgYJAAAEAACHAQAA</data>
+				<key>framebuffer-con2-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-con3-alldata</key>
+				<data>AwQKAAAIAACHAQAA</data>
+				<key>framebuffer-con3-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-con3-has-lspcon</key>
+				<data>AQAAAA==</data>
 				<key>framebuffer-patch-enable</key>
 				<data>AQAAAA==</data>
+				<key>framebuffer-portcount</key>
+				<data>BAAAAA==</data>
 				<key>framebuffer-unifiedmem</key>
 				<data>AAAAgA==</data>
 			</dict>
@@ -554,7 +574,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
@@ -748,13 +768,13 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>IntelBluetoothInjector.kext</string>
+				<string>BlueToolFixup.kext</string>
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/IntelBluetoothInjector</string>
+				<string>Contents/MacOS/BlueToolFixup</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -989,7 +1009,7 @@
 			<key>ThirdPartyDrives</key>
 			<false/>
 			<key>XhciPortLimit</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>Scheme</key>
 		<dict>
@@ -1175,7 +1195,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>keepsyms=1 -wegdbg -igfxblr -lilubetaall -wegnoegpu</string>
+				<string>keepsyms=1 -wegdbg -igfxblr -lilubetaall -wegnoegpu agdpmod=vit9696</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
@@ -1316,6 +1336,8 @@
 			<dict>
 				<key>Arguments</key>
 				<string></string>
+				<key>Comment</key>
+				<string></string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -1324,6 +1346,8 @@
 			<dict>
 				<key>Arguments</key>
 				<string></string>
+				<key>Comment</key>
+				<string></string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -1331,6 +1355,8 @@
 			</dict>
 			<dict>
 				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
 				<true/>
@@ -1385,6 +1411,8 @@
 			<string>BuiltinGraphics</string>
 			<key>UgaPassThrough</key>
 			<false/>
+			<key>UIScale</key>
+			<integer>-1</integer>
 		</dict>
 		<key>ProtocolOverrides</key>
 		<dict>
@@ -1447,6 +1475,8 @@
 			<false/>
 			<key>RequestBootVarRouting</key>
 			<true/>
+			<key>ResizeGpuBars</key>
+			<integer>-1</integer>
 			<key>TscSyncTimeout</key>
 			<integer>0</integer>
 			<key>UnblockFsConnect</key>
