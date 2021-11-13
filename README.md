@@ -1,6 +1,10 @@
 # MacOS-XPS-9500-4K-OpenCore
 macOS Monterey on Dell XPS 9500 year 2020
 
+# Changelog 13112021
+- Updated packages 
+- Added DSDT to disable nvidia graphics to save battery 
+
 # Some Notes
 First thanks to the other Repositorys here on github from @zachs78 and @robotblox
 
